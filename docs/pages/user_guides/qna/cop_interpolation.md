@@ -2,9 +2,13 @@
 
 ## Intro
 Usually, the COP is calculated using the input and output values: 
+
 $$ COP = \frac{\text{out}}{\text{in}} $$
+
 At example timestep 3367 that would be
+
 $$ COP = \frac{34}{23.34} = 1.46 $$
+
 Which doesn't fit to the COP given in the parameter file for this timestep, which is 2.56. 
 
 
@@ -15,13 +19,16 @@ Which doesn't fit to the COP given in the parameter file for this timestep, whic
 In example 15, the heat pump has a maximum heating capacity of 100kW and a minimum conversion of 20% of the heating capacity. 
 
 In addition there are two different conversion expressions given: One for operating at minimum conversion where the transformation from electricity to heat is 1 to 1
+
 $$ conversion_{at~min}: 1~\text{electricity} \longrightarrow 1~\text{heat} $$
+
 And one for operating points above that minimum up to the maximum capacity: 
+
 $$ \text{conversion}: 1~\text{electricity} \longrightarrow COP~\text{heat} $$
 
 When looking at the results there are three important variables that should be considered which have the following values at the example timestep 3367: 
 * heatpump_exp_out_heat_primal: 34
-* heatpump_exp_in_electricity_primal: 23,34
+* heatpump_exp_in_electricity_primal: 23.34
 * heatpump_var_conversion_primal = 14
 
 The heat output comprises two parts: 
@@ -55,7 +62,7 @@ electricity.
 
 ## Details
 
-A detailed deivation of the $COP_{over~min}$ equation: 
+A detailed derivation of the $COP_{over~min}$ equation: 
 
 We assume the conversion to be given as
 
