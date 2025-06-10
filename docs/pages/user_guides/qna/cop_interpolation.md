@@ -41,22 +41,26 @@ Calculation example:
 
 $$
 \begin{align}
-& COP_{at~min} = 1 \\
-
-& COP_{over~min} = \frac{ COP_{at~max} \cdot (1-\alpha) \cdot \beta}{\beta - (COP_{at~max} \cdot \alpha)} = 4.197
+    & COP_{at~min} = 1 \\
+    & COP_{over~min} = \frac{ COP_{at~max} \cdot (1-\alpha) \cdot \beta}{\beta - (COP_{at~max} \cdot \alpha)} = 4.197
 \end{align}
 $$
+
 Where (2) is only applied to the delta above 20kW!
+
 $$
 \begin{align}
-& COP_{at~max} = COP_{from~file~at~t=3367} = 2.56 \\
-
-& COP_{total} = \frac{\text{out}}{\text{in}} = 1.46
+    & COP_{at~max} = COP_{from~file~at~t=3367} = 2.56 \\
+    & COP_{total} = \frac{\text{out}}{\text{in}} = 1.46
 \end{align}
 $$
+
 For a heating demand of 34 kW and a $COP_{at~max}$ of 2.56 one will need 
+
 $$
-\text{In} = \frac{\alpha * \text{capacity}}{COP_{at~min}} + (34kW - \alpha \cdot \text{capacity}) \cdot \frac{1}{COP_{over~min}} = \frac{20kW}{1} +  \frac{14kW}{4.197} = 23.34 kW $$ 
+\text{In} = \frac{\alpha * \text{capacity}}{COP_{at~min}} + (34kW - \alpha \cdot \text{capacity}) \cdot \frac{1}{COP_{over~min}} = \frac{20kW}{1} +  \frac{14kW}{4.197} = 23.34 kW 
+$$ 
+
 electricity. 
 
 
