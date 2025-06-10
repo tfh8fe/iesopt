@@ -1,11 +1,11 @@
 # Variable COP and minimum conversion
 
 ## Intro
-Usually, the COP is calculated using the input and output values: 
+Usually, the COP is defined by: 
 
 $$ COP = \frac{\text{out}}{\text{in}} $$
 
-At example timestep 3367 that would be
+At result from the optimization at example timestep 3367 is:
 
 $$ COP = \frac{34}{23.34} = 1.46 $$
 
@@ -18,24 +18,24 @@ Which doesn't fit to the COP given in the parameter file for this timestep, whic
 ## Answer
 In example 15, the heat pump has a maximum heating capacity of 100kW and a minimum conversion of 20% of the heating capacity. 
 
-In addition there are two different conversion expressions given: One for operating at minimum conversion where the transformation from electricity to heat is 1 to 1
+In addition, there are two different conversion expressions given: One for operating at minimum conversion where the transformation from electricity to heat is 1-to-1
 
-$$ conversion_{at~min}: 1~\text{electricity} \longrightarrow 1~\text{heat} $$
+$$ \text{conversion~at~min}:~1~\text{electricity} \longrightarrow 1~\text{heat} $$
 
 And one for operating points above that minimum up to the maximum capacity: 
 
-$$ \text{conversion}: 1~\text{electricity} \longrightarrow COP~\text{heat} $$
+$$ \text{conversion}:~1~\text{electricity} \longrightarrow COP~\text{heat} $$
 
 When looking at the results there are three important variables that should be considered which have the following values at the example timestep 3367: 
 * heatpump_exp_out_heat_primal: 34
 * heatpump_exp_in_electricity_primal: 23.34
-* heatpump_var_conversion_primal = 14
+* heatpump_var_conversion_primal: 14
 
 The heat output comprises two parts: 
-* A 1 to 1 conversion of electricity to heat with an efficiency of 1; so this part equals always 20 as soon as the heat pump is turned on. 
+* A 1-to-1 conversion of electricity to heat with an efficiency of 1; so this part equals always 20 as soon as the heat pump is turned on. 
 * Every additionally required kW heating power is converted by an efficiency that is dependent on the COP at this timestep; in our example time step 3367 it is 2.56. 
 
-This results in a total COP which is dependent on the power to be converted: With rising power demand, the total COP is rising as well. 
+This results in a total COP which is dependent on the power to be converted: With an increasing heat demand (meaning an increased part-load above minimum conversion), the total COP increases as well. At full-load, the total COP equals he COP from the parameter file. Between the minimum conversion and full-load, there is a linear correlation between heat out above minimum and electricity in above minimum. 
 
 Calculation example: 
 
@@ -46,7 +46,7 @@ $$
 \end{align}
 $$
 
-Where (2) is only applied to the delta above 20kW!
+Where the seconds one is only applied to the delta above 20kW!
 
 $$
 \begin{align}
@@ -116,5 +116,5 @@ The plot shows the total COP calculated for three different $COP_{at~max}$ value
 
 ## Summary
 
-The COP out of the parameter file isn't used directly to calculate the necessary electricity input to meet the heating power demand. The minimum electricity input is always 20kW as soon as the heat pump is turned on. The additionally required electricity input is calculated by formula $(8)$, where the COP out of the parameter file is used. 
+The COP from the parameter file isn't used directly to calculate the necessary electricity input to meet the heating power demand. The minimum electricity input is always 20kW as soon as the heat pump is turned on. The additionally required electricity input is calculated by formula $(8)$, where the COP out of the parameter file is used. 
 
