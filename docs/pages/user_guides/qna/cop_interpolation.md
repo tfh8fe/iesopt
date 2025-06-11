@@ -42,7 +42,7 @@ Calculation example:
 $$
 \begin{align}
     & COP_{at~min} = 1 \\
-    & COP_{over~min} = \frac{ COP_{at~max} \cdot (1-\alpha) \cdot \beta}{\beta - (COP_{at~max} \cdot \alpha)} = 4.197
+    & COP_{over~min} = \frac{ COP_{at~max} \cdot (1-\alpha) \cdot \beta}{\beta - (COP_{at~max} \cdot \alpha)} = \frac{2.56 \cdot (1-0.2) \cdot 1}{1 - (2.56 \cdot 0.2)} = 4.197
 \end{align}
 $$
 
@@ -78,7 +78,7 @@ $$ 1~\text{electricity} \longrightarrow \beta~\text{heat} $$
 
 with $\beta = 1.0$ in the example.
 
-When calculating the "interpolated" COP, $\eta$, we use the upper bound of the range as
+When calculating the "interpolated" COP, $COP_{over~min}$, we use the upper bound of the range as
 interpolation node. At this (full) conversion, the output is simply given as
 
 $$ \text{out} = \text{capacity} $$
@@ -106,7 +106,7 @@ $$
 \end{align}
 $$
 
-where $(8)$ gives the final calculation of the interpolated $COP_{over~min}$
+where the last equation gives the final calculation of the "interpolated" $COP_{over~min}$
 
 ---
 
@@ -116,5 +116,5 @@ The plot shows the total COP calculated for three different $COP_{at~max}$ value
 
 ## Summary
 
-The COP from the parameter file isn't used directly to calculate the necessary electricity input to meet the heating power demand. The minimum electricity input is always 20kW as soon as the heat pump is turned on. The additionally required electricity input is calculated by formula $(8)$, where the COP out of the parameter file is used. 
+The COP from the parameter file isn't used directly to calculate the necessary electricity input to meet the heating power demand. The minimum electricity input is always 20kW as soon as the heat pump is turned on. The additionally required electricity input is calculated by the last formula, where the COP out of the parameter file is used. 
 
