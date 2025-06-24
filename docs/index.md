@@ -99,7 +99,7 @@ This overview of `iesopt`'s documentation [^diataxis] will help you know where t
 
 ### Using this documentation
 
-To get started follow the instructions in {ref}`Getting started` to set up the environment and then create your first model by following the tutorial {ref}`a first model`. 
+To get started follow the instructions in {ref}`Installation` to set up the environment and then create your first model by following the tutorial {ref}`a first model`. 
 A quick overview how this documentation is structured to support you in learning IESopt and creating your own models: 
 
 1. **Tutorials** will help you learn how to apply `iesopt`'s various main functionalities, to solve energy
